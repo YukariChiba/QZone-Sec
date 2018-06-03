@@ -25,6 +25,13 @@ A mysterious tool for Python XiaoBais to see the senders of secrets in QZone.
 - 请参照[qwqmeow的脚本](https://github.com/qwqmeow/qqzone)获取cookie和g_tk，填到settings.py和qzone_req.py处。
 - qzone_req.py只需替换[...]处的对应信息
 
+### 你可能需要安装...
+- tqdm
+- urllib
+- sqlite3
+- json  
+(好吧我也不知道哪些是Python自带的)
+
 ### 初始化设置
 有下列地方需要修改：
 - settings.py 修改g_tk和数据库文件，并设置显示规则
@@ -55,6 +62,8 @@ show_unknown = False # 显示搜索的QQ的好友发的秘密(作者为Unknown)
 show_detail = False # 显示详细信息(没卵用，就关掉吧)
 db_name = 'SEC' # 数据库表名
 ```
+
+### 两个功能
 
 #### find.py : 单号查找
 即查找一个QQ号在某段时间发过的所有秘密。
