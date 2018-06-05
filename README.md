@@ -69,12 +69,13 @@ db_name = 'SEC' # 数据库表名
 即查找一个QQ号在某段时间发过的所有秘密。
 ```bash
 python3 find.py -h
-usage: find.py [-h] -q QQ_NUM [-s START_DATE]
+usage: find.py [-h] -q QQ_NUM [-s START_DATE] [-F]
 
 optional arguments:
   -h, --help     show this help message and exit
   -q QQ_NUM      the qq number you want to lookup
   -s START_DATE  the start timestamp you want to spider
+  -F             whether the data is forced updated
 ```
 
 ##### Example
@@ -89,12 +90,13 @@ T-stamp 2018-01-01: : 14752569it [00:08, 1569483.60it/s]
 即查找一个QQ号列表里每个QQ在某段时间发过的所有秘密。
 ```bash
 python3 list_scan.py -h 
-usage: list_scan.py [-h] -l QQ_LIST [-s START_DATE]
+usage: list_scan.py [-h] -l QQ_LIST [-s START_DATE] [-F]
 
 optional arguments:
   -h, --help     show this help message and exit
   -l QQ_LIST     the qq numbers list you want to lookup
   -s START_DATE  the start timestamp you want to spider
+  -F             whether the data is forced updated
 ```
 
 ##### Example
