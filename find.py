@@ -43,8 +43,12 @@ def qzone_query(end_time, qq):
     return int(json_struct['data']['all_feeds_data'][num_item]['singlefeed']['0']['time'])
 
 
-def qzonesecret(qq, over_time=settings.default_end_time):
+def qzonesecret(qq, over_time=settings.default_end_time, force_update=False):
     t = int(time.time())
+    last_time = db.get_last_time(qq)
+    if not force_update:
+        if last_time is not '0':
+            over_time = last_time
     initial_t = t
     bar_item = tqdm(total=initial_t - int(over_time))
     tqdm.write("Start searching QQ " + qq)
@@ -59,6 +63,7 @@ def qzonesecret(qq, over_time=settings.default_end_time):
             initial_t = t
         except Exception:
             time.sleep(5)
+    db.update_id(qq, str(t))
     bar_item.close()
 
 
@@ -71,8 +76,12 @@ def main():
     parser.add_argument('-s', help='the start timestamp you want to spider',
                         dest='start_date',
                         default=settings.default_end_time)
+    parser.add_argument('-F', help='whether the data is forced updated',
+                        dest='force_update',
+                        action='store_true',
+                        default=False)
     args = parser.parse_args()
-    qzonesecret(args.qq_num, over_time=args.start_date)
+    qzonesecret(args.qq_num, over_time=args.start_date, force_update=(args.force_update is True))
     db.db_close()
 
 

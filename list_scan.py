@@ -14,6 +14,10 @@ def main_entry():
     parser.add_argument('-s', help='the start timestamp you want to spider',
                         dest='start_date',
                         default=settings.default_end_time)
+    parser.add_argument('-F', help='whether the data is forced updated',
+                        dest='force_update',
+                        action='store_true',
+                        default=False)
     args = parser.parse_args()
     qq_list = []
     for qq in open(args.qq_list):
@@ -23,7 +27,7 @@ def main_entry():
     bar_list = tqdm(total=len(qq_list), position=1)
     i = 1
     for qq in qq_list:
-        find.qzonesecret(qq, over_time=args.start_date)
+        find.qzonesecret(qq, over_time=args.start_date, force_update=(args.force_update is True))
         bar_list.update(1)
         bar_list.set_description("Item %i" % i)
         i += 1

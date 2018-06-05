@@ -35,5 +35,18 @@ def if_exist(m_id, time_stamp):
     return False
 
 
+def update_id(it_id, it_time):
+    cur.execute("INSERT OR REPLACE INTO " + settings.qq_list_name + " (QQ, LAST_TIME) \
+        VALUES ('" + it_id + "', '" + it_time + "')")
+    conn.commit()
+
+
+def get_last_time(it_id):
+    res = cur.execute("SELECT LAST_TIME FROM " + settings.qq_list_name + " WHERE QQ='" + it_id + "'")
+    for row in res:
+        return row[0]
+    return '0'
+
+
 def db_close():
     conn.close()
