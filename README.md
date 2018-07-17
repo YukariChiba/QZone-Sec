@@ -4,6 +4,9 @@ A mysterious tool for Python XiaoBais to see the senders of secrets in QZone.
 
 [![platform](https://img.shields.io/badge/python-3.6-green.svg)]()  
 
+## 注意！！！
+本工具已无法继续使用，可能的原因是更改了api地址或者使用qq自身的验证措施，有兴趣的朋友可以试着对QQ流量进行抓包（请使用xposed模块just trust me或相同工具绕过证书绑定，否则无法实现抓包），不过本人猜测本工具的运作原理大概率已经无法满足，这些代码就留作后人研究了。
+
 ### 谨记
 这个项目源于当年学Python时做的练手项目，本人只是拿这个来做研究和学习。我不关心你们有多少故事，也不关心你把这个拿来做什么，但是容我告诫一句，**不要用它来伤害你所在乎的人**，如果你真想看，有些东西，知道就好。
 
